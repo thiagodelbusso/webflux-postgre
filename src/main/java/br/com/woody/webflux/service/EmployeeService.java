@@ -27,7 +27,7 @@ public class EmployeeService {
 		int limit = 100;
 		return employeeDao.findAll(offset, limit)
 						  .flatMap(emp -> Mono.just(emp)
-								   .zipWith(departmentDao.findById("0001"))
+								   .zipWith(departmentDao.findById(emp.getIdDepartment()))
 								   .map(t -> {
 									   emp.setDepartamento(t.getT2());
 									   return emp;

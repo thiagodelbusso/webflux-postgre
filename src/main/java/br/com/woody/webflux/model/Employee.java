@@ -28,6 +28,10 @@ public class Employee implements Persistable<Integer> {
 	@Column("idade")
 	private int idade;
 	
+	@JsonIgnore
+	@Column("id_department")
+	private String idDepartment;
+	
 	@Transient
 	private Department departamento;
 	
